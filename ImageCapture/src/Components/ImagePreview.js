@@ -3,10 +3,16 @@ import PropTypes from "prop-types";
 
 export const ImagePreview = ({ dataUri, isFullscreen }) => {
   let classNameFullscreen = isFullscreen ? "demo-image-preview-fullscreen" : "";
-
+  const refreshPage= () => {
+    window.location.reload(false);
+  }
   return (
-    <div>
-        <img src={dataUri} width="50%" height="50%"/>
+    <div className={"demo-image-preview " + classNameFullscreen}>
+        <img src={dataUri} alt="" width="50%" height="50%" />
+        <br />
+        <button onClick={refreshPage}>
+          Retake
+        </button>
     </div>
   );
 };
